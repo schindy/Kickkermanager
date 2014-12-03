@@ -7,6 +7,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/webapp/WEB-INF/resources"/>
         <property name="context-root" value="KickerManager"/>
         <property name="java-output-path" value="/KickerManager/target/classes"/>
     </wb-module>

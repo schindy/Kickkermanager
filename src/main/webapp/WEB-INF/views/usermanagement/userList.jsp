@@ -6,7 +6,7 @@
 <ul>
 <c:forEach var="user" items="${users}">
 <s:url value="/usermanagement/userDetailInformation/" var="user_url">
-<s:param name="username" value="${user.loginname}"/>
+<s:param name="loginname" value="${user.loginname}"/>
 </s:url>
 <li><a href="${user_url}">${user.loginname}</a></li>
 </c:forEach>

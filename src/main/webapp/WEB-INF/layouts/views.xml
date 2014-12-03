@@ -24,12 +24,21 @@
 
 	<definition name="usermanagement/userList" extends="defaultTemplate">
 		<put-attribute name="title" value="User Management" />
-		<put-attribute name="body" value="/WEB-INF/views/usermanagement/userList.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/usermanagement/userList.jsp" />
 	</definition>
-	
-	<definition name="usermanagement/userDetailInformation" extends="defaultTemplate">
+
+	<definition name="usermanagement/userDetailInformation"
+		extends="defaultTemplate">
 		<put-attribute name="title" value="User Management" />
-		<put-attribute name="body" value="/WEB-INF/views/usermanagement/userDetailInformation.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/usermanagement/userDetailInformation.jsp" />
 	</definition>
-	
+
+	<definition name="usermanagement/createUser" extends="defaultTemplate">
+		<put-attribute name="title" value="User Management" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/usermanagement/createUser.jsp" />
+	</definition>
+
 </tiles-definitions>

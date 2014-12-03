@@ -18,13 +18,13 @@ public class JdbcUserDAO implements UserDAO {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
-	public void insert(User user) {
+	public void saveUser(User user) {
 		String sql = "INSERT INTO user "
-				+ "(ID, LOGIN_NAME, LOGIN_PASSWORD, FIRST_NAME, LAST_NAME, EMAIL) VALUES (?, ?, ?, ?, ?, ?)";
+				+ "(LOGIN_NAME, LOGIN_PASSWORD, FIRST_NAME, LAST_NAME, EMAIL) VALUES (?, ?, ?, ?, ?)";
 
 		jdbcTemplate.update(
 				sql,
-				new Object[] { user.getId(), user.getLoginname(),
+				new Object[] {user.getLoginname(),
 						user.getPassword(), user.getFirstname(),
 						user.getLastname(), user.getEmail() });
 	}
@@ -94,6 +94,11 @@ public class JdbcUserDAO implements UserDAO {
 		User user = (User) jdbcTemplate.queryForObject(sql,
 				new Object[] { loginname }, new UserMapper());
 		return user;
+	}
+
+	public void insert(User user) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

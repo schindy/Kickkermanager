@@ -28,7 +28,7 @@ public class HelloWorldController {
         user.setFirstname("Simon23");
         user.setLastname("Schindelmann23");
         user.setEmail("test@test.de23");
-        userDAO.insert(user);
+//        userDAO.insert(user);
  
         User user1 = userDAO.findByCustomerId(1);
         ModelAndView m = new ModelAndView("helloworld");
