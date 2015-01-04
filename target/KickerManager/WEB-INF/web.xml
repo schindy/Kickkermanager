@@ -24,7 +24,7 @@
 		<param-value>
 		/WEB-INF/resources/database.xml
 		</param-value>
-</context-param>
+	</context-param>
 	
 	<listener>
 	<listener-class>
