@@ -40,5 +40,17 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/usermanagement/createUser.jsp" />
 	</definition>
+	
+	<definition name="login" extends="defaultTemplate">
+		<put-attribute name="title" value="Login" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/login.jsp" />
+	</definition>
+	
+		<definition name="welcome" extends="defaultTemplate">
+		<put-attribute name="title" value="Welcome" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/welcome.jsp" />
+	</definition>
 
 </tiles-definitions>
