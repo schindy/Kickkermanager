@@ -9,18 +9,17 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LoginController {
 	
-	@RequestMapping(value = "/welcome**", method = RequestMethod.GET)
+	@RequestMapping(value = {"", "/home"}, method = RequestMethod.GET)
 	public ModelAndView defaultPage() {
  
 	  ModelAndView model = new ModelAndView();
-	  model.addObject("title", "Spring Security Login Form - Database Authentication");
-	  model.addObject("message", "This is default page!");
-	  model.setViewName("welcome");
+	  model.addObject("title", "Home");
+	  model.setViewName("home");
 	  return model;
  
 	}
 	
-	@RequestMapping(value = {"", "/login"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/login"}, method = RequestMethod.GET)
 	public ModelAndView login(@RequestParam(value = "error", required = false) String error,
 		@RequestParam(value = "logout", required = false) String logout) {
  
