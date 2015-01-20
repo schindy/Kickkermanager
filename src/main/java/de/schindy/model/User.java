@@ -15,6 +15,7 @@ public class User {
 	@Size(min=6, max=20, message="Passowrd must be between 6 and 20 characters long.")
 	private String password;
 	private boolean enable;
+	private String role;
 
 	public Long getId() {
 		return id;
@@ -70,6 +71,14 @@ public class User {
 
 	public void setEnable(boolean enable) {
 		this.enable = enable;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 }

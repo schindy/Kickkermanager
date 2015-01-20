@@ -17,16 +17,17 @@ public class JdbcUserDAO implements UserDAO {
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
-
+	
 	public void saveUser(User user) {
+		int roleID = findRoleIDByRoleName(user.getRole());
 		String sql = "INSERT INTO user "
-				+ "(LOGIN_NAME, LOGIN_PASSWORD, FIRST_NAME, LAST_NAME, EMAIL) VALUES (?, ?, ?, ?, ?)";
+				+ "(LOGIN_NAME, LOGIN_PASSWORD, FIRST_NAME, LAST_NAME, EMAIL, ENABLE, ROLE_ID) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
 		jdbcTemplate.update(
 				sql,
 				new Object[] {user.getLoginname(),
 						user.getPassword(), user.getFirstname(),
-						user.getLastname(), user.getEmail() });
+						user.getLastname(), user.getEmail(), user.isEnable(), roleID });
 	}
 
 	public User findByCustomerId(int id) {
@@ -102,6 +103,24 @@ public class JdbcUserDAO implements UserDAO {
 	public void insert(User user) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public List<String> getRoles () {
+		String sql = "SELECT role FROM role";
+		List<String> roles = new ArrayList<String>();
+		List<Map<String, Object>> rows= jdbcTemplate.queryForList(sql);
+		for (Map<String, Object> row : rows) {
+			String role = (String) row.get("role");
+			roles.add(role);
+		}
+		return roles; 
+	}
+	
+	private int findRoleIDByRoleName(String roleName) {
+		String sql = "SELECT id FROM role WHERE role = ?";
+		int roleID = (int) jdbcTemplate.queryForObject(sql,
+				new Object[] { roleName }, Integer.class);
+		return roleID;
 	}
 
 }

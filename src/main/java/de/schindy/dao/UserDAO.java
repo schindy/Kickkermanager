@@ -9,6 +9,8 @@ public interface UserDAO {
 	public User findByCustomerId(int id);
 
 	public List<User> getAll();
+	
+	public List<String> getRoles();
 
 	public User findUserByLoginName(String loginname);
 
