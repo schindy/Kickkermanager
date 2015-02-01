@@ -13,7 +13,7 @@
 <c:forEach var="user" items="${users}">
 <tr>
 <td>
-<s:url value="/usermanagement/userDetailInformation/" var="user_url">
+<s:url value="/usermanagement/editUser" var="user_url">
 <s:param name="loginname" value="${user.loginname}"/>
 </s:url>
 <a href="<c:out value="${user_url}"/>"><c:out value="${user.loginname}"/></a>

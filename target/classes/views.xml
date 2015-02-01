@@ -41,13 +41,19 @@
 			value="/frontend/views/usermanagement/createUser.jsp" />
 	</definition>
 	
+	<definition name="usermanagement/editUser" extends="defaultTemplate">
+		<put-attribute name="title" value="User Management" />
+		<put-attribute name="body"
+			value="/frontend/views/usermanagement/editUser.jsp" />
+	</definition>
+	
 	<definition name="login" extends="defaultTemplate">
 		<put-attribute name="title" value="Login" />
 		<put-attribute name="body"
 			value="/frontend/views/login.jsp" />
 	</definition>
 	
-		<definition name="welcome" extends="defaultTemplate">
+	<definition name="welcome" extends="defaultTemplate">
 		<put-attribute name="title" value="Welcome" />
 		<put-attribute name="body"
 			value="/frontend/views/welcome.jsp" />
