@@ -56,5 +56,15 @@ public class UserCast {
 	public void setDice6(boolean dice6) {
 		this.dice6 = dice6;
 	}
-	
+
+	public boolean castAll() {
+		if (dice1 == true && dice2 == true && dice3 == true && dice4 == true
+				&& dice5 == true && dice6 == true) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
 }

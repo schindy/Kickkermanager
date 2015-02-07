@@ -11,6 +11,12 @@ public class GameServiceImpl implements GameService {
 
 	public Cast throwDices(UserCast userCast) {
 		Cast cast = new Cast();
+		
+		if(!userCast.castAll()) {
+			//Cast castBefore = getCastbefore();
+			//if castbefore null throw new RuntimeException("First Cast in Round. All Decies must cast");
+		}
+		
 		if (userCast.isDice1()) {
 			cast.getDice1().roll();
 		} else {

@@ -1,5 +1,6 @@
 package de.schindy.model;
 
+
 public class Cast {
 
 	private Dice dice1;
@@ -9,6 +10,7 @@ public class Cast {
 	private Dice dice5;
 	private Dice dice6;
 	
+	
 	public Cast() {
 		this.dice1 = new Dice();
 		this.dice2 = new Dice();
@@ -17,7 +19,7 @@ public class Cast {
 		this.dice5 = new Dice();
 		this.dice6 = new Dice();
 	}
-
+	
 	public Dice getDice1() {
 		return dice1;
 	}
@@ -74,6 +76,7 @@ public class Cast {
 		dice5.roll();
 		dice6.roll();
 	}
+	
 
 	@Override
 	public String toString() {
