@@ -100,11 +100,6 @@ public class JdbcUserDAO implements UserDAO {
 		return user;
 	}
 
-	public void insert(User user) {
-		// TODO Auto-generated method stub
-		
-	}
-	
 	public List<String> getRoles () {
 		String sql = "SELECT role FROM role";
 		List<String> roles = new ArrayList<String>();

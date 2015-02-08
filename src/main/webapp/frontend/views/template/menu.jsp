@@ -37,7 +37,11 @@
 	        	<a href="javascript:formSubmit()">
 	        		<!-- For login user -->
 					<c:url value="/j_spring_security_logout" var="logoutUrl" />
-					<form style="display: none;" action="${logoutUrl}" method="post" id="logoutForm">
+					<c:if test="${pageContext.request.userPrincipal.name != null}">
+						Logout ${pageContext.request.userPrincipal.name}
+					</c:if>
+	        	</a>
+	        	<form style="display: none;" action="${logoutUrl}" method="post" id="logoutForm">
 						<input type="hidden" name="${_csrf.parameterName}"
 							value="${_csrf.token}" />
 					</form>
@@ -46,11 +50,6 @@
 							document.getElementById("logoutForm").submit();
 						}
 					</script>
-	
-					<c:if test="${pageContext.request.userPrincipal.name != null}">
-						Logout ${pageContext.request.userPrincipal.name}
-					</c:if>
-	        	</a>
              </sec:authorize>
 			<sec:authorize access="isAnonymous()">
 					<a href="<c:url value="/login"/>">Login</a>

@@ -1,3 +1,0 @@
-<div>
-	Header DIV
-</div>
