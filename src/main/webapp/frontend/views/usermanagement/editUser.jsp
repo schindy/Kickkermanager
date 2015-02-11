@@ -32,7 +32,11 @@
 			</div>
 			<div class="form-group">
 					<form:label path="role">Role</form:label>
-					<form:select path="role" items="${roles}" cssClass="form-control" />
+					<form:select path="role" cssClass="form-control">
+ 						<form:option value="${selected_role}"/>
+   						<form:options items="${roles}" />
+					</form:select>
+<%-- 					<form:select path="role" items="${roles}" cssClass="form-control" /> --%>
 			</div>
 			<button type="submit" class="btn btn-default">Save</button>
 		</fieldset>

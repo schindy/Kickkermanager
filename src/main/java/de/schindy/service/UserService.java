@@ -15,4 +15,8 @@ public interface UserService {
 	public User getUserByLoginName(String loginname);
 
 	public void saveUser(User user);
+	
+	public String getRoleName(int id);
+	
+	public List<String> getAllOtherRoles(User user);
 }

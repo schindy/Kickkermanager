@@ -61,8 +61,10 @@ public class UserController implements ImageProperties {
 	@RequestMapping(value = "/editUser",  method = RequestMethod.GET)
 	public ModelAndView editUser(@RequestParam("loginname") String loginname) {
 		ModelAndView m = new ModelAndView();
-		m.addObject("user", userService.getUserByLoginName(loginname));
+		User user = userService.getUserByLoginName(loginname);
+		m.addObject("user", user);
 		m.addObject("roles", userService.getRoles());
+		m.addObject("selected_role", userService.getAllOtherRoles(user));
 		m.setViewName("usermanagement/editUser");
 		return m;
 	}

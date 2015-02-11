@@ -15,4 +15,6 @@ public interface UserDAO {
 	public User findUserByLoginName(String loginname);
 
 	public void saveUser(User user);
+	
+	public String findRoleNameById(int id);
 }

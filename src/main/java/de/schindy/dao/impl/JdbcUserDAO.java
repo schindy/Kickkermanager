@@ -111,6 +111,15 @@ public class JdbcUserDAO implements UserDAO {
 		return roles; 
 	}
 	
+	public String findRoleNameById(int id) {
+		String sql = "SELECT role FROM role WHERE id = ?";
+		String role = (String) jdbcTemplate.queryForObject(sql,
+				new Object[] { id }, String.class);
+		return role;
+	}
+	
+	
+	
 	private int findRoleIDByRoleName(String roleName) {
 		String sql = "SELECT id FROM role WHERE role = ?";
 		int roleID = (int) jdbcTemplate.queryForObject(sql,

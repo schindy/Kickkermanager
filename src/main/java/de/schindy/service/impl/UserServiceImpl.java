@@ -26,6 +26,13 @@ public class UserServiceImpl implements UserService {
 	public List<String> getRoles() {
 		return userDAO.getRoles();
 	}
+	
+	public List<String> getAllOtherRoles(User user) {
+		List<String> roles = getRoles();
+		String userRole = getRoleName(Integer.parseInt(user.getRole()));
+		roles.remove(userRole);
+		return roles;
+	}
 
 	public User getUserByLoginName(String loginname) {
 		return userDAO.findUserByLoginName(loginname);
@@ -33,5 +40,9 @@ public class UserServiceImpl implements UserService {
 
 	public void saveUser(User user) {
 		userDAO.saveUser(user);
+	}
+	
+	public String getRoleName(int id) {
+		return userDAO.findRoleNameById(id);
 	}
 }
