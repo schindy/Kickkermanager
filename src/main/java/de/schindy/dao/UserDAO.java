@@ -6,7 +6,7 @@ import de.schindy.model.User;
 
 public interface UserDAO {
 
-	public User findByCustomerId(int id);
+	public User findByUserId(int id);
 
 	public List<User> getAll();
 	
@@ -16,5 +16,4 @@ public interface UserDAO {
 
 	public void saveUser(User user);
 	
-	public String findRoleNameById(int id);
 }

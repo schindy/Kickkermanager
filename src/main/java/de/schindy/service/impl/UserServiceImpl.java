@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
 	private UserDAO userDAO;
 
 	public User getUserByCustomerId(int id) {
-		return userDAO.findByCustomerId(id);
+		return userDAO.findByUserId(id);
 	}
 
 	public List<User> getAllUsers() {
@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
 	
 	public List<String> getAllOtherRoles(User user) {
 		List<String> roles = getRoles();
-		String userRole = getRoleName(Integer.parseInt(user.getRole()));
+		String userRole = user.getRole();
 		roles.remove(userRole);
 		return roles;
 	}
@@ -41,8 +41,5 @@ public class UserServiceImpl implements UserService {
 	public void saveUser(User user) {
 		userDAO.saveUser(user);
 	}
-	
-	public String getRoleName(int id) {
-		return userDAO.findRoleNameById(id);
-	}
+
 }

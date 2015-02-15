@@ -1,13 +1,20 @@
 package de.schindy.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import de.schindy.dao.RoundDAO;
+import de.schindy.dao.UserDAO;
 import de.schindy.model.Cast;
+import de.schindy.model.Round;
 import de.schindy.model.UserCast;
 import de.schindy.service.GameService;
 
 @Service
 public class GameServiceImpl implements GameService {
+	
+	@Autowired
+	private RoundDAO roundDAO;
 
 	public Cast throwDices(UserCast userCast) {
 		Cast cast = new Cast();
@@ -55,5 +62,18 @@ public class GameServiceImpl implements GameService {
 		
 		return cast;
 
+	}
+
+	public Cast getLastCast(int roundID) {
+		Round round = roundDAO.findRoundById(roundID);
+		if(round.getCast1ID() == null) {
+			return null;
+		} else if (round.getCast2ID() == null) {
+			return findCastByID(round.getCast1ID());
+		} else if (round.getCast3ID() == null) {
+			return findCastByID(round.getCast2ID());
+		} else {
+			throw new RuntimeException("No free casts in this round");
+		}
 	}
 }

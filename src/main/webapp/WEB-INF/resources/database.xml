@@ -29,7 +29,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/knorzel" />
 		<property name="username" value="root" />
-		<property name="password" value="root" />
+		<property name="password" value="" />
 	</bean>
 
 </beans>

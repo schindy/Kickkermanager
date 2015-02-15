@@ -64,7 +64,7 @@ public class UserController implements ImageProperties {
 		User user = userService.getUserByLoginName(loginname);
 		m.addObject("user", user);
 		m.addObject("roles", userService.getAllOtherRoles(user));
-		m.addObject("selected_role", userService.getRoleName(Integer.parseInt(user.getRole())));
+		m.addObject("selected_role", user.getRole());
 		m.setViewName("usermanagement/editUser");
 		return m;
 	}

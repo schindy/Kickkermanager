@@ -8,5 +8,7 @@ import de.schindy.model.UserCast;
 public interface GameService {
 	
 	public Cast throwDices(UserCast userCast);
+	
+	void getLastCast();
 
 }

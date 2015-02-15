@@ -30,7 +30,7 @@ public class JdbcUserDAO implements UserDAO {
 						user.getLastname(), user.getEmail(), user.isEnable(), roleID });
 	}
 
-	public User findByCustomerId(int id) {
+	public User findByUserId(int id) {
 
 		String sql = "SELECT * FROM user WHERE ID = ?";
 
@@ -74,6 +74,8 @@ public class JdbcUserDAO implements UserDAO {
 		// }, new BeanPropertyRowMapper<User>(User.class));
 		User user = (User) jdbcTemplate.queryForObject(sql,
 				new Object[] { id }, new UserMapper());
+		
+		user.setRole(findRoleNameById(user.getRoleID()));
 		return user;
 	}
 
@@ -97,6 +99,7 @@ public class JdbcUserDAO implements UserDAO {
 		String sql = "SELECT * FROM user WHERE LOGIN_NAME = ?";
 		User user = (User) jdbcTemplate.queryForObject(sql,
 				new Object[] { loginname }, new UserMapper());
+		user.setRole(findRoleNameById(user.getRoleID()));
 		return user;
 	}
 
@@ -111,7 +114,7 @@ public class JdbcUserDAO implements UserDAO {
 		return roles; 
 	}
 	
-	public String findRoleNameById(int id) {
+	private String findRoleNameById(int id) {
 		String sql = "SELECT role FROM role WHERE id = ?";
 		String role = (String) jdbcTemplate.queryForObject(sql,
 				new Object[] { id }, String.class);

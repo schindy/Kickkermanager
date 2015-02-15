@@ -30,7 +30,7 @@ public class HelloWorldController {
         user.setEmail("test@test.de23");
 //        userDAO.insert(user);
  
-        User user1 = userDAO.findByCustomerId(1);
+        User user1 = userDAO.findByUserId(1);
         ModelAndView m = new ModelAndView("helloworld");
         m.addObject("name", user1.getLastname());
 		return m; 
