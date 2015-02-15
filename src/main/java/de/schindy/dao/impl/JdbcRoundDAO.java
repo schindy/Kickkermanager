@@ -3,11 +3,10 @@ package de.schindy.dao.impl;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import de.schindy.dao.RoundDAO;
+import de.schindy.dao.mapper.CastMapper;
 import de.schindy.dao.mapper.RoundMapper;
-import de.schindy.dao.mapper.UserMapper;
 import de.schindy.model.Cast;
 import de.schindy.model.Round;
-import de.schindy.model.User;
 
 public class JdbcRoundDAO implements RoundDAO {
 	
@@ -25,6 +24,12 @@ public class JdbcRoundDAO implements RoundDAO {
 
 	public void setCast(Cast cast) {
 
+	}
+
+	public Cast findCastById(int castID) {
+		String castSQL = "SELECT * FROM round WHERE ID = ?";
+		Cast cast = (Cast) jdbcTemplate.queryForObject(castSQL, new Object[]{castID}, new CastMapper());
+		return cast;
 	}
 
 }

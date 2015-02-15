@@ -20,7 +20,7 @@ public class GameServiceImpl implements GameService {
 		Cast cast = new Cast();
 		
 		if(!userCast.castAll()) {
-			//Cast castBefore = getCastbefore();
+			//Cast castBefore = getLastCast(roundID);
 			//if castbefore null throw new RuntimeException("First Cast in Round. All Decies must cast");
 		}
 		
@@ -64,14 +64,14 @@ public class GameServiceImpl implements GameService {
 
 	}
 
-	public Cast getLastCast(int roundID) {
+	private Cast getLastCast(int roundID) {
 		Round round = roundDAO.findRoundById(roundID);
-		if(round.getCast1ID() == null) {
+		if(round.getCast1ID() == 0) {
 			return null;
-		} else if (round.getCast2ID() == null) {
-			return findCastByID(round.getCast1ID());
-		} else if (round.getCast3ID() == null) {
-			return findCastByID(round.getCast2ID());
+		} else if (round.getCast2ID() == 0) {
+			return roundDAO.findCastById(round.getCast1ID());
+		} else if (round.getCast3ID() == 0) {
+			return roundDAO.findCastById(round.getCast2ID());
 		} else {
 			throw new RuntimeException("No free casts in this round");
 		}

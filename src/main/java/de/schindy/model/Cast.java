@@ -2,13 +2,14 @@ package de.schindy.model;
 
 
 public class Cast {
-
+	
 	private Dice dice1;
 	private Dice dice2;
 	private Dice dice3;
 	private Dice dice4;
 	private Dice dice5;
 	private Dice dice6;
+	private int id;
 	
 	
 	public Cast() {
@@ -84,5 +85,13 @@ public class Cast {
 				+ dice2.getNumber() + "\n" + "Dice 3: " + dice3.getNumber()
 				+ "\n" + "Dice 4: " + dice4.getNumber() + "\n" + "Dice 5: "
 				+ dice5.getNumber() + "\n" + "Dice 6: " + dice6.getNumber();
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

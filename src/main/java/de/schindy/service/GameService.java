@@ -9,6 +9,4 @@ public interface GameService {
 	
 	public Cast throwDices(UserCast userCast);
 	
-	void getLastCast();
-
 }

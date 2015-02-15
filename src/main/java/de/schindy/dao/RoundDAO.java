@@ -8,5 +8,7 @@ public interface RoundDAO {
 	public Round findRoundById(int RoundID);
 	
 	public void setCast(Cast cast);
+	
+	public Cast findCastById(int castID);
 
 }
