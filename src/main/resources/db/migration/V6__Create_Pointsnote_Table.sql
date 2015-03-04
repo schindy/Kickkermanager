@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS `pointsnote` (
+`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `aces` int(10) unsigned DEFAULT NULL,
+  `twos` int(10) unsigned DEFAULT NULL,
+  `threes` int(10) unsigned DEFAULT NULL,
+  `fours` int(10) unsigned DEFAULT NULL,
+  `fives` int(10) unsigned DEFAULT NULL,
+  `sixes` int(10) unsigned DEFAULT NULL,
+  `uper_section_score` int(10) unsigned DEFAULT NULL,
+  `bonus` int(10) unsigned DEFAULT NULL,
+  `three_of_a_kind` int(10) unsigned DEFAULT NULL,
+  `four_of_a_kind` int(10) unsigned DEFAULT NULL,
+  `full_house` int(10) unsigned DEFAULT NULL,
+  `small_straight` int(10) unsigned DEFAULT NULL,
+  `big_straight` int(10) unsigned DEFAULT NULL,
+  `yahtzee` int(10) unsigned DEFAULT NULL,
+  `chance` int(10) unsigned DEFAULT NULL,
+  `lower_section_score` int(10) unsigned DEFAULT NULL,
+  `grand_total` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
