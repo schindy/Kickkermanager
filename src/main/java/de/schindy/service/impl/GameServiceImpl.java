@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import de.schindy.dao.RoundDAO;
-import de.schindy.dao.UserDAO;
 import de.schindy.model.Cast;
 import de.schindy.model.Round;
 import de.schindy.model.UserCast;
@@ -16,56 +15,59 @@ public class GameServiceImpl implements GameService {
 	@Autowired
 	private RoundDAO roundDAO;
 
-	public Cast throwDices(UserCast userCast) {
+	public Cast throwDices(UserCast userCast, int gameId) {
 		Cast cast = new Cast();
+		Cast castBefore = null;
+		Round round = roundDAO.findRoundByGameId(gameId);
 		
 		if(!userCast.castAll()) {
-			//Cast castBefore = getLastCast(roundID);
-			//if castbefore null throw new RuntimeException("First Cast in Round. All Decies must cast");
+			castBefore = getLastCast(gameId, round);
+			if (castBefore == null) {
+				throw new RuntimeException("First Cast in Round. All Decies must cast");
+			}
 		}
 		
 		if (userCast.isDice1()) {
 			cast.getDice1().roll();
 		} else {
-			// get value before
+			cast.setDice1(castBefore.getDice1());
 		}
 
 		if (userCast.isDice2()) {
 			cast.getDice2().roll();
 		} else {
-			// get value before
+			cast.setDice2(castBefore.getDice2());
 		}
 
 		if (userCast.isDice3()) {
 			cast.getDice3().roll();
 		} else {
-			// get value before
+			cast.setDice3(castBefore.getDice3());
 		}
 
 		if (userCast.isDice4()) {
 			cast.getDice4().roll();
 		} else {
-			// get value before
+			cast.setDice4(castBefore.getDice4());
 		}
 
 		if (userCast.isDice5()) {
 			cast.getDice5().roll();
 		} else {
-			// get value before
+			cast.setDice5(castBefore.getDice5());
 		}
 
 		if (userCast.isDice6()) {
-			cast.getDice1().roll();
+			cast.getDice6().roll();
 		} else {
-			// get value before
+			cast.setDice6(castBefore.getDice6());
 		}
-		
-		return cast;
-
+		int castId = roundDAO.saveCast(cast);
+		setCastId(round, castId);
+		return cast; 
 	}
 
-	private Cast getLastCast(int roundID) {
-		Round round = roundDAO.findRoundById(roundID);
+	private Cast getLastCast(int gameId, Round round) {
 		if(round.getCast1ID() == 0) {
 			return null;
 		} else if (round.getCast2ID() == 0) {
@@ -76,4 +78,22 @@ public class GameServiceImpl implements GameService {
 			throw new RuntimeException("No free casts in this round");
 		}
 	}
+	
+	private void setCastId(Round round, int castId) {
+		if(round.getCast1ID() == 0) {
+			round.setCast1ID(castId);
+		} else if (round.getCast2ID() == 0) {
+			round.setCast2ID(castId);
+		} else if (round.getCast3ID() == 0) {
+			round.setCast3ID(castId);
+		} else {
+			throw new RuntimeException("Round cannot save Cast");
+		}
+		roundDAO.updateRound(round);
+	}
+
+	public void startGame() {
+		// TODO Auto-generated method stub
+	}
+
 }

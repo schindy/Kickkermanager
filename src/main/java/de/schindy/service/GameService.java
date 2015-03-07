@@ -7,6 +7,8 @@ import de.schindy.model.UserCast;
 
 public interface GameService {
 	
-	public Cast throwDices(UserCast userCast);
+	public Cast throwDices(UserCast userCast, int gameId);
+	
+	public void startGame();
 	
 }
