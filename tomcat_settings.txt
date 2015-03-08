@@ -1,0 +1,11 @@
+Tomcat Server Einstellung:
+
+TOMCAT_PATH/conf/tomcat-user.xml:
+
+<role rolename="manager-gui"/>
+	<role rolename="manager-script"/>
+	<user username="admin" password="admin" roles="manager-gui,manager-script" />
+
+Deployment to tomcat:
+
+mvn tomcat7:deploy
