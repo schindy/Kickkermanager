@@ -1,5 +1,7 @@
 package de.schindy.service.impl;
 
+import java.util.Random;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,37 +30,37 @@ public class GameServiceImpl implements GameService {
 		}
 		
 		if (userCast.isDice1()) {
-			cast.getDice1().roll();
+			cast.setDice1(this.createRandomNumber());
 		} else {
 			cast.setDice1(castBefore.getDice1());
 		}
 
 		if (userCast.isDice2()) {
-			cast.getDice2().roll();
+			cast.setDice2(this.createRandomNumber());
 		} else {
 			cast.setDice2(castBefore.getDice2());
 		}
 
 		if (userCast.isDice3()) {
-			cast.getDice3().roll();
+			cast.setDice3(this.createRandomNumber());
 		} else {
 			cast.setDice3(castBefore.getDice3());
 		}
 
 		if (userCast.isDice4()) {
-			cast.getDice4().roll();
+			cast.setDice4(this.createRandomNumber());
 		} else {
 			cast.setDice4(castBefore.getDice4());
 		}
 
 		if (userCast.isDice5()) {
-			cast.getDice5().roll();
+			cast.setDice5(this.createRandomNumber());
 		} else {
 			cast.setDice5(castBefore.getDice5());
 		}
 
 		if (userCast.isDice6()) {
-			cast.getDice6().roll();
+			cast.setDice6(this.createRandomNumber());
 		} else {
 			cast.setDice6(castBefore.getDice6());
 		}
@@ -91,6 +93,12 @@ public class GameServiceImpl implements GameService {
 		}
 		roundDAO.updateRound(round);
 	}
+	
+	private int createRandomNumber() {
+		Random random = new Random();
+		return random.nextInt(6) + 1; 
+	}
+	
 
 	public void startGame() {
 		// TODO Auto-generated method stub

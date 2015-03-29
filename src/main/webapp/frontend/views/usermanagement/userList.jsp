@@ -21,6 +21,7 @@
 <td><c:out value="${user.firstname}"/></td>
 <td><c:out value="${user.lastname}"/></td>
 <td><c:out value="${user.email}"/></td>
+<td><c:out value="${user.startdate}"/></td>
 </tr>
 </c:forEach>
 </table>

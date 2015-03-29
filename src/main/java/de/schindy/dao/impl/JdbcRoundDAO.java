@@ -51,12 +51,12 @@ public class JdbcRoundDAO implements RoundDAO {
 		                public PreparedStatement createPreparedStatement(Connection connection)
 		                        throws SQLException {
 		                    PreparedStatement ps = connection.prepareStatement(saveCastSQL, Statement.RETURN_GENERATED_KEYS);
-		                    ps.setInt(1, cast.getDice1().getNumber());
-		                    ps.setInt(2, cast.getDice2().getNumber());
-		                    ps.setInt(3, cast.getDice3().getNumber());
-		                    ps.setInt(4, cast.getDice4().getNumber());
-		                    ps.setInt(5, cast.getDice5().getNumber());
-		                    ps.setInt(6, cast.getDice6().getNumber());
+		                    ps.setInt(1, cast.getDice1());
+		                    ps.setInt(2, cast.getDice2());
+		                    ps.setInt(3, cast.getDice3());
+		                    ps.setInt(4, cast.getDice4());
+		                    ps.setInt(5, cast.getDice5());
+		                    ps.setInt(6, cast.getDice6());
 		                    return ps;
 		                }
 		            }, holder);

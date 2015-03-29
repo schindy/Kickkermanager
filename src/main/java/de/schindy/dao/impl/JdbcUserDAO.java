@@ -1,5 +1,6 @@
 package de.schindy.dao.impl;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -120,8 +121,6 @@ public class JdbcUserDAO implements UserDAO {
 				new Object[] { id }, String.class);
 		return role;
 	}
-	
-	
 	
 	private int findRoleIDByRoleName(String roleName) {
 		String sql = "SELECT id FROM role WHERE role = ?";
