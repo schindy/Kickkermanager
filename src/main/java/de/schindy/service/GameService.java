@@ -9,6 +9,6 @@ public interface GameService {
 	
 	public Cast throwDices(UserCast userCast, int gameId);
 	
-	public void startGame();
+	public int startGame(int userId);
 	
 }

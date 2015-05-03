@@ -8,6 +8,19 @@ public class UserCast {
 	private boolean dice4;
 	private boolean dice5;
 	private boolean dice6;
+	
+	public UserCast(boolean dice1, boolean dice2, boolean dice3, boolean dice4, boolean dice5, boolean dice6) {
+		this.dice1 = dice1;
+		this.dice2 = dice2;
+		this.dice3 = dice3;
+		this.dice4 = dice4;
+		this.dice5 = dice5;
+		this.dice6 = dice6;
+	}
+	
+	public UserCast () {
+		
+	}
 
 	public boolean isDice1() {
 		return dice1;

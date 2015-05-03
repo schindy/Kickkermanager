@@ -5,8 +5,12 @@ import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import de.schindy.dao.GameDAO;
+import de.schindy.dao.PointsnoteDAO;
 import de.schindy.dao.RoundDAO;
 import de.schindy.model.Cast;
+import de.schindy.model.Game;
+import de.schindy.model.Pointsnote;
 import de.schindy.model.Round;
 import de.schindy.model.UserCast;
 import de.schindy.service.GameService;
@@ -16,6 +20,12 @@ public class GameServiceImpl implements GameService {
 	
 	@Autowired
 	private RoundDAO roundDAO;
+	
+	@Autowired
+	private GameDAO gameDAO;
+	
+	@Autowired
+	private PointsnoteDAO pointsnoteDAO;
 
 	public Cast throwDices(UserCast userCast, int gameId) {
 		Cast cast = new Cast();
@@ -100,8 +110,10 @@ public class GameServiceImpl implements GameService {
 	}
 	
 
-	public void startGame() {
-		// TODO Auto-generated method stub
+	public int startGame(int userId) {
+		Pointsnote pointsnote = pointsnoteDAO.createPointsnote();
+		Game game = gameDAO.createGame(userId, pointsnote.getId());
+		return game.getId();
 	}
 
 }

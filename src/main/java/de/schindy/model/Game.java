@@ -2,8 +2,8 @@ package de.schindy.model;
 
 public class Game {
 	private int id;
-	private int user_id;
-	private int pointsnote_id;
+	private int userId;
+	private int pointsnoteId;
 	private boolean finished;
 	
 	public int getId() {
@@ -12,17 +12,17 @@ public class Game {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getUser_id() {
-		return user_id;
+	public int getUserId() {
+		return userId;
 	}
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
-	public int getPointsnote_id() {
-		return pointsnote_id;
+	public int getPointsnoteId() {
+		return pointsnoteId;
 	}
-	public void setPointsnote_id(int pointsnote_id) {
-		this.pointsnote_id = pointsnote_id;
+	public void setPointsnoteId(int pointsnoteId) {
+		this.pointsnoteId = pointsnoteId;
 	}
 	public boolean isFinished() {
 		return finished;

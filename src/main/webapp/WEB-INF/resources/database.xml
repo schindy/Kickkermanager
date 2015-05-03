@@ -22,6 +22,14 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<bean id="roundDAO" class="de.schindy.dao.impl.JdbcRoundDAO">
 		<property name="jdbcTemplate" ref="jdbcTemplate" />
 	</bean>
+	
+	<bean id="gameDAO" class="de.schindy.dao.impl.JdbcGameDAO">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	
+	<bean id="pointsnoteDAO" class="de.schindy.dao.impl.JdbcPointsnoteDAO">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
 
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<constructor-arg ref="dataSource" />
